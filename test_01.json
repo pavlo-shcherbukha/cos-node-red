@@ -1,0 +1,242 @@
+[
+    {
+        "id": "77869e5508837e95",
+        "type": "tab",
+        "label": "Test-IBM-COS-Node",
+        "disabled": false,
+        "info": "Тестування завантаження файлів на  IBM Cloud Storage Node викорситовуючи їх Node.js API",
+        "env": []
+    },
+    {
+        "id": "35eada412c021244",
+        "type": "shibmcos-config",
+        "configname": "img1",
+        "endpoint": "",
+        "apikeyid": "",
+        "serviceInstanceId": "",
+        "signatureVersion": "iam"
+    },
+    {
+        "id": "5c2c63060631050e",
+        "type": "shibmcos",
+        "z": "77869e5508837e95",
+        "name": "uploadoncos",
+        "configname": "35eada412c021244",
+        "x": 870,
+        "y": 200,
+        "wires": [
+            [
+                "e95c962d8773f54a"
+            ]
+        ]
+    },
+    {
+        "id": "e95c962d8773f54a",
+        "type": "debug",
+        "z": "77869e5508837e95",
+        "name": "COS-UPLOAD",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "fab9820f781d055b",
+        "type": "debug",
+        "z": "77869e5508837e95",
+        "name": "FileReadBUFF",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "106657b7b63d8f63",
+        "type": "file in",
+        "z": "77869e5508837e95",
+        "name": "file-reader",
+        "filename": "payload.Filename",
+        "filenameType": "msg",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "binary",
+        "allProps": false,
+        "x": 640,
+        "y": 200,
+        "wires": [
+            [
+                "fab9820f781d055b",
+                "5c2c63060631050e"
+            ]
+        ]
+    },
+    {
+        "id": "ded4147f25802392",
+        "type": "comment",
+        "z": "77869e5508837e95",
+        "name": "Flow Description",
+        "info": "# Призначення\nТестування завантаження велеких об'єктів в IBM Cloud Object Storage",
+        "x": 420,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "dab7fe6ef1b57d99",
+        "type": "inject",
+        "z": "77869e5508837e95",
+        "name": "Upload ./uplfiles//pic-test-01.jpg",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "bucketName",
+                "v": "cloud-object-storage-cos-standard-mrh",
+                "vt": "str"
+            },
+            {
+                "p": "itemName",
+                "v": "pic-test-01.jpg",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"Filename\":\"./uplfiles/pic-test-01.jpg\"}",
+        "payloadType": "json",
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "106657b7b63d8f63"
+            ]
+        ],
+        "info": "msg.bucketName, msg.itemName, msg.filePath)"
+    },
+    {
+        "id": "113de46c4dad865c",
+        "type": "inject",
+        "z": "77869e5508837e95",
+        "name": "Upload ./uplfiles//pic-test-02.jpg",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "bucketName",
+                "v": "cloud-object-storage-cos-standard-mrh",
+                "vt": "str"
+            },
+            {
+                "p": "itemName",
+                "v": "pic-test-02.jpg",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"Filename\":\"./uplfiles/pic-test-02.jpg\"}",
+        "payloadType": "json",
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "106657b7b63d8f63"
+            ]
+        ],
+        "info": "msg.bucketName, msg.itemName, msg.filePath)"
+    },
+    {
+        "id": "21383740b4eac065",
+        "type": "inject",
+        "z": "77869e5508837e95",
+        "name": "Upload ./uplfiles//pic-test-03.jpg",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "bucketName",
+                "v": "cloud-object-storage-cos-standard-mrh",
+                "vt": "str"
+            },
+            {
+                "p": "itemName",
+                "v": "pic-test-03.jpg",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"Filename\":\"./uplfiles/pic-test-03.jpg\"}",
+        "payloadType": "json",
+        "x": 350,
+        "y": 360,
+        "wires": [
+            [
+                "106657b7b63d8f63"
+            ]
+        ],
+        "info": "msg.bucketName, msg.itemName, msg.filePath)"
+    },
+    {
+        "id": "c5d710f3fc9a8857",
+        "type": "inject",
+        "z": "77869e5508837e95",
+        "name": "Upload ./uplfiles//pic-test-04.jpg",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "bucketName",
+                "v": "cloud-object-storage-cos-standard-mrh",
+                "vt": "str"
+            },
+            {
+                "p": "itemName",
+                "v": "pic-test-04.jpg",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"Filename\":\"./uplfiles/pic-test-04.jpg\"}",
+        "payloadType": "json",
+        "x": 350,
+        "y": 460,
+        "wires": [
+            [
+                "106657b7b63d8f63"
+            ]
+        ],
+        "info": "msg.bucketName, msg.itemName, msg.filePath)"
+    }
+]
