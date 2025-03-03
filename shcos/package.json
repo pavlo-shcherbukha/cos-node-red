@@ -1,0 +1,20 @@
+{
+  "name": "shibmcos",
+  "version": "1.0.0",
+  "description": "ibm cos node",
+  "main": "shcos.js",
+  "scripts": {
+    "test": "test"
+  },
+  "node-red": {
+    "nodes": {
+      "shibmcos": "shcos.js"
+    }
+  },
+  "author": "pasha",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "ibm-cos-sdk": "^1.14.0"
+  }
+}
